@@ -1,4 +1,6 @@
 import heroPhoto from '../assets/googleEmbajador.JPG'
+import resumeFile from '../assets/Vanessa_Hermosillo_Resume_MITACS.pdf'
+
 
 function Me() {
   return (
@@ -22,7 +24,29 @@ function Me() {
             biophysics, autonomous systems, and applied AI.
           </p>  
 
-          
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
+            <a
+              href="#projects"
+              className="bg-rose text-cream px-6 py-3 rounded-full font-body font-medium hover:bg-rose-dark transition-colors text-center"
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              className="border border-charcoal/20 text-charcoal px-6 py-3 rounded-full font-body font-medium hover:bg-charcoal/5 transition-colors text-center"
+            >
+              Get in Touch
+            </a>
+
+            <a
+              href={resumeFile}
+              download
+              className="border border-charcoal/20 text-charcoal px-6 py-3 rounded-full font-body font-medium hover:bg-charcoal/5 transition-colors text-center"
+            >
+              Download Resume
+            </a>
+          </div>
+        
         </div>
 
         <div className="flex justify-center md:justify-end">
