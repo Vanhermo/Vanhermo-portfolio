@@ -1,4 +1,5 @@
 import { useForm, ValidationError } from '@formspree/react'
+import { FiMail, FiLinkedin, FiGithub } from 'react-icons/fi'
 
 function Contact() {
   const [state, handleSubmit] = useForm('xzepwlkj')
@@ -11,98 +12,119 @@ function Contact() {
       <h2 className="font-heading text-3xl md:text-4xl font-semibold text-charcoal mb-6">
         Get in Touch
       </h2>
-      <p className="font-body text-charcoal/70 max-w-lg mb-10 leading-relaxed">
-        Whether it's about research collaboration, an opportunity, or just to
-        connect — I'd love to hear from you.
-      </p>
 
-      {state.succeeded ? (
-        <p className="font-body text-sage text-lg">
-          Thanks — I'll get back to you soon!
-        </p>
-      ) : (
-        <form onSubmit={handleSubmit} className="max-w-lg flex flex-col gap-5">
-          {/* Honeypot — hidden from real visitors, bots often fill every field */}
-          <input
-            type="text"
-            name="company"
-            tabIndex="-1"
-            autoComplete="off"
-            className="hidden"
-            aria-hidden="true"
-          />
+      <div className="grid md:grid-cols-[1.2fr_1fr] gap-16 max-w-6xl mx-auto">
+        <div>
+          <p className="font-body text-charcoal/70 max-w-lg mb-10 leading-relaxed">
+            Whether it's about research collaboration, an opportunity, or just to
+            connect — I'd love to hear from you.
+          </p>
 
-          <div>
-            <label className="font-body text-sm text-charcoal/70 block mb-1">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              required
-              maxLength={100}
-              className="w-full font-body bg-surface/60 border border-charcoal/15 rounded-xl px-4 py-3 focus:outline-none focus:border-rose"
-            />
-            <ValidationError
-              prefix="Name"
-              field="name"
-              errors={state.errors}
-              className="font-body text-rose-dark text-xs mt-1"
-            />
-          </div>
+          {state.succeeded ? (
+            <p className="font-body text-sage text-lg">
+              Thanks — I'll get back to you soon!
+            </p>
+          ) : (
+            <form onSubmit={handleSubmit} className="max-w-lg flex flex-col gap-5">
+              <input
+                type="text"
+                name="company"
+                tabIndex="-1"
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
 
-          <div>
-            <label className="font-body text-sm text-charcoal/70 block mb-1">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              required
-              maxLength={200}
-              className="w-full font-body bg-surface/60 border border-charcoal/15 rounded-xl px-4 py-3 focus:outline-none focus:border-rose"
-            />
-            <ValidationError
-              prefix="Email"
-              field="email"
-              errors={state.errors}
-              className="font-body text-rose-dark text-xs mt-1"
-            />
-          </div>
+              <div>
+                <label className="font-body text-sm text-charcoal/70 block mb-1">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  maxLength={100}
+                  className="w-full font-body bg-white/60 border border-charcoal/15 rounded-xl px-4 py-3 focus:outline-none focus:border-rose"
+                />
+                <ValidationError prefix="Name" field="name" errors={state.errors} className="font-body text-rose-dark text-xs mt-1" />
+              </div>
 
-          <div>
-            <label className="font-body text-sm text-charcoal/70 block mb-1">
-              Message
-            </label>
-            <textarea
-              name="message"
-              required
-              maxLength={2000}
-              rows={5}
-              className="w-full font-body bg-surface/60 border border-charcoal/15 rounded-xl px-4 py-3 focus:outline-none focus:border-rose resize-none"
-            />
-            <ValidationError
-              prefix="Message"
-              field="message"
-              errors={state.errors}
-              className="font-body text-rose-dark text-xs mt-1"
-            />
-          </div>
+              <div>
+                <label className="font-body text-sm text-charcoal/70 block mb-1">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  maxLength={200}
+                  className="w-full font-body bg-white/60 border border-charcoal/15 rounded-xl px-4 py-3 focus:outline-none focus:border-rose"
+                />
+                <ValidationError prefix="Email" field="email" errors={state.errors} className="font-body text-rose-dark text-xs mt-1" />
+              </div>
 
-          <button
-            type="submit"
-            disabled={state.submitting}
-            className="bg-rose text-cream px-6 py-3 rounded-full font-body font-medium hover:bg-rose-dark transition-colors disabled:opacity-50"
+              <div>
+                <label className="font-body text-sm text-charcoal/70 block mb-1">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  required
+                  maxLength={2000}
+                  rows={5}
+                  className="w-full font-body bg-white/60 border border-charcoal/15 rounded-xl px-4 py-3 focus:outline-none focus:border-rose resize-none"
+                />
+                <ValidationError prefix="Message" field="message" errors={state.errors} className="font-body text-rose-dark text-xs mt-1" />
+              </div>
+
+              <button
+                type="submit"
+                disabled={state.submitting}
+                className="bg-rose text-cream px-6 py-3 rounded-full font-body font-medium hover:bg-rose-dark transition-colors disabled:opacity-50"
+              >
+                {state.submitting ? 'Sending…' : 'Send Message'}
+              </button>
+
+              <ValidationError errors={state.errors} className="font-body text-rose-dark text-sm" />
+            </form>
+          )}
+        </div>
+
+        <div className="bg-surface/60 border border-charcoal/10 dark:border-charcoal/25 rounded-3xl p-8 h-fit">
+          <h3 className="font-heading text-xl text-rose-dark mb-4">
+            Prefer email?
+          </h3>
+          <a
+            href="mailto:vanessahermosillod@gmail.com"
+            className="flex items-center gap-3 font-body text-charcoal/70 hover:text-rose-dark transition-colors mb-6"
           >
-            {state.submitting ? 'Sending…' : 'Send Message'}
-          </button>
+            <FiMail /> vanessahermosillod@gmail.com
+          </a>
 
-          <ValidationError
-            errors={state.errors}
-            className="font-body text-rose-dark text-sm"
-          />
-        </form>
-      )}
+          <div className="flex gap-4 mb-6">
+            <a
+              href="https://linkedin.com/in/claudia-vanessa-hermosillo-diaz-779957334"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center bg-cream border border-charcoal/10 rounded-full hover:bg-rose/10 transition-colors"
+            >
+              <FiLinkedin className="text-charcoal" />
+            </a>
+            <a
+              href="https://github.com/Vanhermo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 flex items-center justify-center bg-cream border border-charcoal/10 rounded-full hover:bg-rose/10 transition-colors"
+            >
+              <FiGithub className="text-charcoal" />
+            </a>
+          </div>
+
+          <p className="font-body text-sm text-charcoal/50 leading-relaxed">
+            Based in Calimaya, México. Usually replies within a couple of days.
+          </p>
+        </div>
+      </div>
     </section>
   )
 }
