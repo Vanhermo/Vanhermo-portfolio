@@ -1,15 +1,18 @@
+import researchPhoto from '../assets/research/biomolecular.jpg'
+
 function ResearchExperience() {
   const research = [
     {
       title: 'Computational Biomolecular Research',
       org: 'Next Gen Scientist Program, Tec de Monterrey',
       role: 'Research Member — Computational/Technical Support',
-      period: 'April 2025 – June 2026',
+      period: 'April 2025 – present',
+      image: researchPhoto,
       points: [
         'Contributed to an ongoing project modeling RNA and biomolecular interactions through Brownian dynamics simulation.',
-        'Studied and debugged an existing C-based simulation to understand the team\'s computational methodology, then translated selected components to CUDA under the lead researcher\'s guidance to enable GPU acceleration.',
+        "Studied and debugged an existing C-based simulation to understand the team's computational methodology, then translated selected components to CUDA under the lead researcher's guidance to enable GPU acceleration.",
         'Worked directly with force-calculation components, including bonding, flexibility, torsion, and Watson-Crick interaction terms.',
-        'Presented project progress at the program\'s inaugural research encounter.',
+        "Presented project progress at the program's inaugural research encounter.",
       ],
     },
     {
@@ -17,6 +20,7 @@ function ResearchExperience() {
       org: 'Next Gen Scientist Program, Tec de Monterrey',
       role: 'Co-Founding Research Member',
       period: 'Ongoing',
+      image: null,
       points: [
         'Co-founded this research project with a student team, proposing the initial project focus and scope under faculty supervision.',
         'Contributing to navigation and hardware-level optimization on an NVIDIA Jetson Orin Nano platform.',
@@ -25,7 +29,7 @@ function ResearchExperience() {
   ]
 
   return (
-    <section id="research" className="px-6 md:px-20 py-24 bg-cream">
+    <section className="px-6 md:px-20 pt-8 pb-24 bg-cream">
       <p className="font-body text-sage text-sm uppercase tracking-widest mb-3">
         Research
       </p>
@@ -39,28 +43,46 @@ function ResearchExperience() {
             key={item.title}
             className="bg-surface/60 border border-charcoal/10 dark:border-charcoal/25 rounded-3xl p-8"
           >
-            <div className="flex flex-wrap justify-between items-baseline gap-2 mb-1">
-              <h3 className="font-heading text-2xl text-charcoal">
-                {item.title}
-              </h3>
-              <span className="font-body text-xs text-charcoal/50">
-                {item.period}
-              </span>
+            <div
+              className={`grid gap-6 ${
+                item.image ? 'md:grid-cols-[1fr_260px]' : ''
+              }`}
+            >
+              <div>
+                <div className="flex flex-wrap justify-between items-baseline gap-2 mb-1">
+                  <h3 className="font-heading text-2xl text-charcoal">
+                    {item.title}
+                  </h3>
+                  <span className="font-body text-xs text-charcoal/50">
+                    {item.period}
+                  </span>
+                </div>
+                <p className="font-body text-rose-dark text-sm mb-1">
+                  {item.org}
+                </p>
+                <p className="font-body text-charcoal/50 text-sm italic mb-4">
+                  {item.role}
+                </p>
+                <ul className="flex flex-col gap-2">
+                  {item.points.map((point) => (
+                    <li
+                      key={point}
+                      className="font-body text-charcoal/70 leading-relaxed pl-4 border-l-2 border-sage/40"
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {item.image && (
+                <img
+                  src={item.image}
+                  alt={`${item.title} presentation`}
+                  className="w-full h-64 md:h-full object-cover rounded-2xl order-first md:order-last"
+                />
+              )}
             </div>
-            <p className="font-body text-rose-dark text-sm mb-1">{item.org}</p>
-            <p className="font-body text-charcoal/50 text-sm italic mb-4">
-              {item.role}
-            </p>
-            <ul className="flex flex-col gap-2">
-              {item.points.map((point) => (
-                <li
-                  key={point}
-                  className="font-body text-charcoal/70 leading-relaxed pl-4 border-l-2 border-sage/40"
-                >
-                  {point}
-                </li>
-              ))}
-            </ul>
           </div>
         ))}
       </div>

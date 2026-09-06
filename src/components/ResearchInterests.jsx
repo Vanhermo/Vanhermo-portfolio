@@ -18,7 +18,7 @@ function ResearchInterests() {
   ]
 
   return (
-    <section className="px-6 md:px-20 py-24 bg-cream">
+    <section className="px-6 md:px-20 pt-24 pb-8 bg-cream">
       <p className="font-body text-sage text-sm uppercase tracking-widest mb-3">
         What I'm Exploring
       </p>
