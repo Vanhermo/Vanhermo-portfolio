@@ -1,10 +1,10 @@
-import heroPhoto from '../assets/googleEmbajador.JPG'
-import resumeFile from '../assets/Vanessa_Hermosillo_Resume_MITACS.pdf'
+import Vanhermo from '../assets/googleEmbajador.JPG'
+import resumeFile from '../assets/Vanessa_Hermosillo_Resume_MITACS .pdf'
 
 
-function Me() {
+function Me({ goTo }) {
   return (
-    <section className="min-h-screen flex items-center px-6 md:px-20 bg-cream">
+    <section className="min-h-[75vh] flex items-center px-6 md:px-20 bg-cream">
       <div className="grid md:grid-cols-2 gap-12 items-center w-full max-w-6xl mx-auto">
         <div>
           <p className="font-body text-sage text-sm md:text-base uppercase tracking-widest mb-4">
@@ -21,23 +21,22 @@ function Me() {
             I work inside existing research codebases — translating computational
             methods in physics-based simulation and autonomous systems into working,
             GPU-accelerated implementations. Currently exploring computational
-            biophysics, autonomous systems, and applied AI.
-          </p>  
+            biophysics, autonomous systems, cybersecurity, and applied AI.
+          </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <a
-              href="#projects"
+            <button
+              onClick={() => goTo('projects')}
               className="bg-rose text-cream px-6 py-3 rounded-full font-body font-medium hover:bg-rose-dark transition-colors text-center"
             >
               View Projects
-            </a>
-            <a
-              href="#contact"
+            </button>
+            <button
+              onClick={() => goTo('contact')}
               className="border border-charcoal/20 text-charcoal px-6 py-3 rounded-full font-body font-medium hover:bg-charcoal/5 transition-colors text-center"
             >
               Get in Touch
-            </a>
-
+            </button>
             <a
               href={resumeFile}
               download
@@ -46,14 +45,13 @@ function Me() {
               Download Resume
             </a>
           </div>
-        
         </div>
 
         <div className="flex justify-center md:justify-end">
           <div className="relative w-80 h-80 md:w-[420px] md:h-[420px]">
             <div className="absolute inset-0 bg-rose/20 rounded-[40%_60%_60%_40%/60%_30%_70%_40%]" />
             <img
-              src={heroPhoto}
+              src={Vanhermo}
               alt="Claudia Vanessa Hermosillo Diaz"
               className="relative w-full h-full object-cover rounded-[40%_60%_60%_40%/60%_30%_70%_40%] border-4 border-white shadow-xl"
             />
