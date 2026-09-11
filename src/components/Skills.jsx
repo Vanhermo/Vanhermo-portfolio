@@ -28,12 +28,14 @@ function Skills() {
   ]
 
   const certifications = [
-    'Cisco — CCNA 1: Introduction to Networks',
+    'Cisco — CCNA I: Introduction to Networks',
+    'Cisco — CCNA II: Switching, Routing and Wireless Essentials (In Progress)',
     'Cisco — Introduction to Cybersecurity',
     'Cisco — Cybersecurity Fundamentals (In Progress)',
+    'Cisco — Ethical Hacker (In progress)',
     'Oracle — Java Fundamentals & Java Programming',
   ]
-
+  
   const verifiedBadges = [
     {
       name: 'Introduction to Cybersecurity',
